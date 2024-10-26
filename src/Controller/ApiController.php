@@ -25,4 +25,10 @@ class ApiController extends AbstractController
     {
         return $this->json($this->tmdb->getMoviesByGenre($genreId));
     }
+
+    #[Route('/search/movies/{term}', name: 'api_search_movies', methods: ['GET'])]
+    public function searchMovies(string $term): Response
+    {
+        return $this->json($this->tmdb->searchMovies($term));
+    }
 }

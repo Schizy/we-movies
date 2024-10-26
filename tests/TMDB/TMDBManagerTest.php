@@ -39,6 +39,23 @@ class TMDBManagerTest extends KernelTestCase
         ]), $data[0]);
     }
 
+    public function testSearchMovies(): void
+    {
+        $this->stubToReturnFromClient('tests/Stubs/TMDB/search.json');
+        $data = self::getContainer()->get(TMDBManager::class)->searchMovies('figh');
+        $this->assertCount(20, $data);
+
+        $this->assertEquals(new Movie([
+            'id' => 45288,
+            'poster_path' => "/9UNq2kogJ0fNA6TfFJdJt0PXOwV.jpg",
+            'overview' => "Kimura finally has his championship match. It takes place at the annual champion carnival. But now he must face the intense champion, Mashiba for the Junior Lightweight championship.",
+            'title' => "Fighting Spirit - Mashiba vs. Kimura",
+            'release_date' => "2003-09-05",
+            'vote_average' => 6.8,
+            'vote_count' => 46,
+        ]), $data[0]);
+    }
+
     private function stubToReturnFromClient(string $stubName): void
     {
         $mockClient = new MockHttpClient(MockResponse::fromFile($stubName));

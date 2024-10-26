@@ -9,6 +9,7 @@ class TMDBClient
 {
     public const GENRE_LIST = '/genre/movie/list';
     public const GENRE_MOVIES = '/discover/movie';
+    public const MOVIE_SEARCH = '/search/movie';
 
     public function __construct(
         private readonly string              $tmdbApiUrl,
@@ -30,12 +31,23 @@ class TMDBClient
         return $data['genres'];
     }
 
-    public function getMoviesByGenre(int $genreId)
+    public function getMoviesByGenre(int $genreId): array
     {
         $data = $this->get(self::GENRE_MOVIES, ['with_genres' => $genreId]);
 
         if (!isset($data['results'])) {
             $this->invalidDataException(self::GENRE_MOVIES);
+        }
+
+        return $data['results'];
+    }
+
+    public function searchMovies(string $term): array
+    {
+        $data = $this->get(self::MOVIE_SEARCH, ['query' => $term]);
+
+        if (!isset($data['results'])) {
+            $this->invalidDataException(self::MOVIE_SEARCH);
         }
 
         return $data['results'];

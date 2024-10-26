@@ -4,7 +4,6 @@ namespace App\TMDB;
 
 use App\TMDB\DTO\Genre;
 use App\TMDB\DTO\Movie;
-use App\TMDB\Mapper\DTOMapper;
 
 class TMDBManager
 {
@@ -26,5 +25,10 @@ class TMDBManager
     public function getMoviesByGenre(int $genreId): array
     {
         return $this->mapper->map($this->tmdbClient->getMoviesByGenre($genreId), Movie::class);
+    }
+
+    public function searchMovies(string $term): array
+    {
+        return $this->mapper->map($this->tmdbClient->searchMovies($term), Movie::class);
     }
 }

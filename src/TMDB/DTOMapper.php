@@ -1,6 +1,6 @@
 <?php
 
-namespace App\TMDB\Mapper;
+namespace App\TMDB;
 
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;

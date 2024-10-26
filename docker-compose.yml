@@ -1,0 +1,18 @@
+services:
+    nginx:
+        build: ./docker/nginx
+        restart: unless-stopped
+        ports: ['8800:80']
+        volumes:
+            - './public:/var/www/public'
+
+    php:
+        build: ./docker/php
+        restart: unless-stopped
+        depends_on:
+            - nginx
+        volumes:
+            - './:/var/www:cached'
+            - /var/www/data/ # exclude data
+            - './vendor:/var/www/vendor:cached'
+            - './var:/var/www/var'

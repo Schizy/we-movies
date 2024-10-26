@@ -8,6 +8,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 class TMDBClient
 {
     public const GENRE_LIST = '/genre/movie/list';
+    public const GENRE_MOVIES = '/discover/movie';
 
     public function __construct(
         private readonly string              $tmdbApiUrl,
@@ -23,19 +24,32 @@ class TMDBClient
         $data = $this->get(self::GENRE_LIST);
 
         if (!isset($data['genres'])) {
-            throw new \Exception('Invalid TMDB API data for ' . self::GENRE_LIST);
+            $this->invalidDataException(self::GENRE_LIST);
         }
 
         return $data['genres'];
     }
 
-    private function get(string $url): array
+    public function getMoviesByGenre(int $genreId)
+    {
+        $data = $this->get(self::GENRE_MOVIES, ['with_genres' => $genreId]);
+
+        if (!isset($data['results'])) {
+            $this->invalidDataException(self::GENRE_MOVIES);
+        }
+
+        return $data['results'];
+    }
+
+    private function get(string $url, array $queryParams = []): array
     {
         $url = $this->tmdbApiUrl . $url;
-        $response = $this->httpClient->request('GET', $url, ['query' => ['api_key' => $this->tmdbApiKey]]);
+        $response = $this->httpClient->request('GET', $url, [
+            'query' => ['api_key' => $this->tmdbApiKey] + $queryParams,
+        ]);
 
         if ($response->getStatusCode() !== 200) {
-            $this->logger->error('TMDB API {url} error: ' . $response->getContent(), ['url' => $url]);
+            $this->logger->error('TMDB API {url} error: ' . $response->getStatusCode(), ['url' => $url]);
             throw new \Exception('TMDB API returned an ' . $response->getStatusCode() . ' status code');
         }
 
@@ -47,5 +61,10 @@ class TMDBClient
         }
 
         return $data;
+    }
+
+    private function invalidDataException(string $endpoint): void
+    {
+        throw new \Exception('Invalid TMDB API data for the endpoint : ' . $endpoint);
     }
 }

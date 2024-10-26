@@ -1,0 +1,416 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "adult": false,
+      "backdrop_path": "/yDHYTfA3R0jFYba16jBB1ef8oIt.jpg",
+      "genre_ids": [
+        28,
+        35,
+        878
+      ],
+      "id": 533535,
+      "original_language": "en",
+      "original_title": "Deadpool & Wolverine",
+      "overview": "A listless Wade Wilson toils away in civilian life with his days as the morally flexible mercenary, Deadpool, behind him. But when his homeworld faces an existential threat, Wade must reluctantly suit-up again with an even more reluctant Wolverine.",
+      "popularity": 1900.83,
+      "poster_path": "/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg",
+      "release_date": "2024-07-24",
+      "title": "Deadpool & Wolverine",
+      "video": false,
+      "vote_average": 7.713,
+      "vote_count": 4804
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/p5ozvmdgsmbWe0H8Xk7Rc8SCwAB.jpg",
+      "genre_ids": [
+        16,
+        10751,
+        12,
+        35,
+        18
+      ],
+      "id": 1022789,
+      "original_language": "en",
+      "original_title": "Inside Out 2",
+      "overview": "Teenager Riley's mind headquarters is undergoing a sudden demolition to make room for something entirely unexpected: new Emotions! Joy, Sadness, Anger, Fear and Disgust, who’ve long been running a successful operation by all accounts, aren’t sure how to feel when Anxiety shows up. And it looks like she’s not alone.",
+      "popularity": 1284.781,
+      "poster_path": "/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg",
+      "release_date": "2024-06-11",
+      "title": "Inside Out 2",
+      "video": false,
+      "vote_average": 7.6,
+      "vote_count": 4474
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/xi1VSt3DtkevUmzCx2mNlCoDe74.jpg",
+      "genre_ids": [
+        35,
+        14,
+        27
+      ],
+      "id": 917496,
+      "original_language": "en",
+      "original_title": "Beetlejuice Beetlejuice",
+      "overview": "After a family tragedy, three generations of the Deetz family return home to Winter River. Still haunted by Betelgeuse, Lydia's life is turned upside down when her teenage daughter, Astrid, accidentally opens the portal to the Afterlife.",
+      "popularity": 1101.603,
+      "poster_path": "/kKgQzkUCnQmeTPkyIwHly2t6ZFI.jpg",
+      "release_date": "2024-09-04",
+      "title": "Beetlejuice Beetlejuice",
+      "video": false,
+      "vote_average": 7.2,
+      "vote_count": 1538
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/lgkPzcOSnTvjeMnuFzozRO5HHw1.jpg",
+      "genre_ids": [
+        16,
+        10751,
+        35,
+        28
+      ],
+      "id": 519182,
+      "original_language": "en",
+      "original_title": "Despicable Me 4",
+      "overview": "Gru and Lucy and their girls—Margo, Edith and Agnes—welcome a new member to the Gru family, Gru Jr., who is intent on tormenting his dad. Gru also faces a new nemesis in Maxime Le Mal and his femme fatale girlfriend Valentina, forcing the family to go on the run.",
+      "popularity": 1099.12,
+      "poster_path": "/wWba3TaojhK7NdycRhoQpsG0FaH.jpg",
+      "release_date": "2024-06-20",
+      "title": "Despicable Me 4",
+      "video": false,
+      "vote_average": 7.108,
+      "vote_count": 2055
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/aFDYcmwEWRiEh58Ri1tMpCUWPBp.jpg",
+      "genre_ids": [
+        10770,
+        10751,
+        35,
+        27,
+        16
+      ],
+      "id": 1354627,
+      "original_language": "en",
+      "original_title": "SpongeBob Squarepants: Kreepaway Kamp",
+      "overview": "While at Kamp Koral for a reunion, SpongeBob and the gang are stalked by a mysterious figure lurking in the shadows as campers start disappearing one by one!",
+      "popularity": 617.576,
+      "poster_path": "/blRsgsexoBqnjcEJkV8beKAVT6J.jpg",
+      "release_date": "2024-10-10",
+      "title": "SpongeBob Squarepants: Kreepaway Kamp",
+      "video": false,
+      "vote_average": 7.333,
+      "vote_count": 33
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/tncbMvfV0V07UZozXdBEq4Wu9HH.jpg",
+      "genre_ids": [
+        28,
+        35
+      ],
+      "id": 573435,
+      "original_language": "en",
+      "original_title": "Bad Boys: Ride or Die",
+      "overview": "After their late former Captain is framed, Lowrey and Burnett try to clear his name, only to end up on the run themselves.",
+      "popularity": 605.576,
+      "poster_path": "/oGythE98MYleE6mZlGs5oBGkux1.jpg",
+      "release_date": "2024-06-05",
+      "title": "Bad Boys: Ride or Die",
+      "video": false,
+      "vote_average": 7.5,
+      "vote_count": 2241
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/bAO9hLGRWOJMUFXmKwa4kST6I5N.jpg",
+      "genre_ids": [
+        28,
+        35,
+        80
+      ],
+      "id": 616446,
+      "original_language": "en",
+      "original_title": "Brothers",
+      "overview": "A reformed criminal's attempt at going straight is derailed when he reunites with his sanity-testing twin brother on a road trip for the score of a lifetime. Dodging bullets, the law, and an overbearing mother along the way, they must heal their severed family bond before they end up killing each other.",
+      "popularity": 576.239,
+      "poster_path": "/nM1uXAoOxJdp7oEr9RUaVviNyzD.jpg",
+      "release_date": "2024-10-10",
+      "title": "Brothers",
+      "video": false,
+      "vote_average": 6.5,
+      "vote_count": 96
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/Al127H6f1RXpESdg0MGNL2g8mzO.jpg",
+      "genre_ids": [
+        16,
+        35,
+        878
+      ],
+      "id": 1359227,
+      "original_language": "en",
+      "original_title": "LEGO Marvel Avengers: Mission Demolition",
+      "overview": "A young, aspiring hero and superhero fan inadvertently unleashes a powerful new villain looking to rid the world of the Avengers.",
+      "popularity": 461.817,
+      "poster_path": "/k3LGf9afqmUZiAJ9nffBinpOhOI.jpg",
+      "release_date": "2024-10-17",
+      "title": "LEGO Marvel Avengers: Mission Demolition",
+      "video": false,
+      "vote_average": 7.4,
+      "vote_count": 12
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/2KGxQFV9Wp1MshPBf8BuqWUgVAz.jpg",
+      "genre_ids": [
+        16,
+        28,
+        12,
+        35,
+        10751
+      ],
+      "id": 940551,
+      "original_language": "en",
+      "original_title": "Migration",
+      "overview": "After a migrating duck family alights on their pond with thrilling tales of far-flung places, the Mallard family embarks on a family road trip, from New England, to New York City, to tropical Jamaica.",
+      "popularity": 444.548,
+      "poster_path": "/ldfCF9RhR40mppkzmftxapaHeTo.jpg",
+      "release_date": "2023-12-06",
+      "title": "Migration",
+      "video": false,
+      "vote_average": 7.4,
+      "vote_count": 1756
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/zGLQmrmIB56kMZPnzqReIOBay1B.jpg",
+      "genre_ids": [
+        28,
+        35,
+        80
+      ],
+      "id": 507241,
+      "original_language": "en",
+      "original_title": "The Killer's Game",
+      "overview": "When top hitman Joe Flood is diagnosed with a terminal illness, he decides to take matters into his own hands – by taking a hit out on himself. But when the very hitmen he hired also target his ex-girlfriend, he must fend off an army of assassin colleagues and win back the love of his life before it's too late.",
+      "popularity": 422.251,
+      "poster_path": "/4bKlTeOUr5AKrLky8mwWvlQqyVd.jpg",
+      "release_date": "2024-09-12",
+      "title": "The Killer's Game",
+      "video": false,
+      "vote_average": 6.5,
+      "vote_count": 75
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/vGaBqgY8YRzQVUbBMPnd5SmYvL7.jpg",
+      "genre_ids": [
+        16,
+        35
+      ],
+      "id": 1329336,
+      "original_language": "en",
+      "original_title": "The Bad Guys: Haunted Heist",
+      "overview": "The crafty Bad Guys crew embarks on a high-stakes Halloween heist to swipe a priceless amulet from a spooky mansion. What could go wrong?",
+      "popularity": 409.968,
+      "poster_path": "/oEJC05CqPugMxC4rFu9r6r6vg6m.jpg",
+      "release_date": "2024-10-02",
+      "title": "The Bad Guys: Haunted Heist",
+      "video": false,
+      "vote_average": 7.333,
+      "vote_count": 66
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/nxxCPRGTzxUH8SFMrIsvMmdxHti.jpg",
+      "genre_ids": [
+        35,
+        14,
+        10751
+      ],
+      "id": 639720,
+      "original_language": "en",
+      "original_title": "IF",
+      "overview": "A young girl who goes through a difficult experience begins to see everyone's imaginary friends who have been left behind as their real-life friends have grown up.",
+      "popularity": 397.216,
+      "poster_path": "/xbKFv4KF3sVYuWKllLlwWDmuZP7.jpg",
+      "release_date": "2024-05-08",
+      "title": "IF",
+      "video": false,
+      "vote_average": 7.273,
+      "vote_count": 958
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/mKOBdgaEFguADkJhfFslY7TYxIh.jpg",
+      "genre_ids": [
+        28,
+        878,
+        35
+      ],
+      "id": 365177,
+      "original_language": "en",
+      "original_title": "Borderlands",
+      "overview": "Returning to her home planet, an infamous bounty hunter forms an unexpected alliance with a team of unlikely heroes. Together, they battle monsters and dangerous bandits to protect a young girl who holds the key to unimaginable power.",
+      "popularity": 387.02,
+      "poster_path": "/865DntZzOdX6rLMd405R0nFkLmL.jpg",
+      "release_date": "2024-08-07",
+      "title": "Borderlands",
+      "video": false,
+      "vote_average": 5.854,
+      "vote_count": 711
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/vmzauGqSgx25rzavUbuN6c5Vdfc.jpg",
+      "genre_ids": [
+        16,
+        12,
+        35,
+        10751
+      ],
+      "id": 1059264,
+      "original_language": "en",
+      "original_title": "The Inseparables",
+      "overview": "The animated buddy movie follows the misadventures of Don, a runaway puppet with boundless imaginations, and DJ Doggy Dog, an abandoned plush looking for a friend, who cross paths in Central Park and team up against all odds for a epic friendship adventure in New York.",
+      "popularity": 379.502,
+      "poster_path": "/dmftU2Rnmv9KTteMUwjalOuZHke.jpg",
+      "release_date": "2023-09-01",
+      "title": "The Inseparables",
+      "video": false,
+      "vote_average": 6.4,
+      "vote_count": 30
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/1wP1phHo2CROOqzv7Azs0MT5esU.jpg",
+      "genre_ids": [
+        16,
+        35,
+        10751,
+        12,
+        28
+      ],
+      "id": 748783,
+      "original_language": "en",
+      "original_title": "The Garfield Movie",
+      "overview": "Garfield, the world-famous, Monday-hating, lasagna-loving indoor cat, is about to have a wild outdoor adventure! After an unexpected reunion with his long-lost father – scruffy street cat Vic – Garfield and his canine friend Odie are forced from their perfectly pampered life into joining Vic in a hilarious, high-stakes heist.",
+      "popularity": 344.914,
+      "poster_path": "/p6AbOJvMQhBmffd0PIv0u8ghWeY.jpg",
+      "release_date": "2024-04-30",
+      "title": "The Garfield Movie",
+      "video": false,
+      "vote_average": 7.1,
+      "vote_count": 1036
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/9n2tJBplPbgR2ca05hS5CKXwP2c.jpg",
+      "genre_ids": [
+        16,
+        10751,
+        12,
+        14,
+        35
+      ],
+      "id": 502356,
+      "original_language": "en",
+      "original_title": "The Super Mario Bros. Movie",
+      "overview": "While working underground to fix a water main, Brooklyn plumbers—and brothers—Mario and Luigi are transported down a mysterious pipe and wander into a magical new world. But when the brothers are separated, Mario embarks on an epic quest to find Luigi.",
+      "popularity": 333.862,
+      "poster_path": "/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg",
+      "release_date": "2023-04-05",
+      "title": "The Super Mario Bros. Movie",
+      "video": false,
+      "vote_average": 7.651,
+      "vote_count": 9034
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/AowNXLFNKWDRYBKHLsgTK0T7Bxf.jpg",
+      "genre_ids": [
+        28,
+        35,
+        80
+      ],
+      "id": 1210794,
+      "original_language": "sv",
+      "original_title": "Strul",
+      "overview": "Wrongfully convicted of murder, a clumsy electronics salesman faces police corruption and criminal conspiracies in an attempt to prove his innocence.",
+      "popularity": 333.411,
+      "poster_path": "/ildbg7ho14EHbt1fZWAkgqIyPqy.jpg",
+      "release_date": "2024-10-02",
+      "title": "Trouble",
+      "video": false,
+      "vote_average": 6.907,
+      "vote_count": 97
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/uXDwP5qPhuRyPpQ7WkLbE6t2z5W.jpg",
+      "genre_ids": [
+        35,
+        53,
+        28
+      ],
+      "id": 877817,
+      "original_language": "en",
+      "original_title": "Wolfs",
+      "overview": "Hired to cover up a high-profile crime, a fixer soon finds his night spiralling out of control when he's forced to work with an unexpected counterpart.",
+      "popularity": 324.426,
+      "poster_path": "/vOX1Zng472PC2KnS0B9nRfM8aaZ.jpg",
+      "release_date": "2024-09-20",
+      "title": "Wolfs",
+      "video": false,
+      "vote_average": 6.601,
+      "vote_count": 586
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/A7FKjE6jZyCnQRd4bOo7Yo0czLh.jpg",
+      "genre_ids": [
+        35
+      ],
+      "id": 55685,
+      "original_language": "it",
+      "original_title": "Avere vent'anni",
+      "overview": "Lia and Tina are two beautiful girls who meet and realize that they have a lot in common. They are both young, beautiful and pissed off, so they decide to hitchhike their way to Rome to find Nazariota's commune, a place to stay for free and have all the sex they want... or so they think. Things don't go as they have planned though, and soon they become involved in prostitution, the police and an aggressive gang.",
+      "popularity": 302.602,
+      "poster_path": "/6QXcWnq8Ln0uypX9y1e3r1wEpF.jpg",
+      "release_date": "1978-07-14",
+      "title": "To Be Twenty",
+      "video": false,
+      "vote_average": 5.9,
+      "vote_count": 70
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/hdFIdXwS8FSN2wIsuotjW1mshI0.jpg",
+      "genre_ids": [
+        16,
+        35,
+        12,
+        10751
+      ],
+      "id": 831815,
+      "original_language": "en",
+      "original_title": "Saving Bikini Bottom: The Sandy Cheeks Movie",
+      "overview": "When Bikini Bottom is scooped from the ocean, scientific squirrel Sandy Cheeks and her pal SpongeBob SquarePants saddle up for Texas to save their town.",
+      "popularity": 302.443,
+      "poster_path": "/30YnfZdMNIV7noWLdvmcJS0cbnQ.jpg",
+      "release_date": "2024-10-18",
+      "title": "Saving Bikini Bottom: The Sandy Cheeks Movie",
+      "video": false,
+      "vote_average": 6.4,
+      "vote_count": 14
+    }
+  ],
+  "total_pages": 6999,
+  "total_results": 139969
+}

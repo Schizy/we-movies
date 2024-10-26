@@ -3,13 +3,14 @@
 namespace App\TMDB;
 
 use App\TMDB\DTO\Genre;
-use App\TMDB\Mapper\GenreMapper;
+use App\TMDB\DTO\Movie;
+use App\TMDB\Mapper\DTOMapper;
 
 class TMDBManager
 {
     public function __construct(
-        private readonly TMDBClient  $tmdbClient,
-        private readonly GenreMapper $genreMapper,
+        private readonly TMDBClient $tmdbClient,
+        private readonly DTOMapper  $mapper,
     )
     {
     }
@@ -19,6 +20,11 @@ class TMDBManager
      */
     public function getGenres(): array
     {
-        return ($this->genreMapper)($this->tmdbClient->getGenres());
+        return $this->mapper->map($this->tmdbClient->getGenres(), Genre::class);
+    }
+
+    public function getMoviesByGenre(int $genreId): array
+    {
+        return $this->mapper->map($this->tmdbClient->getMoviesByGenre($genreId), Movie::class);
     }
 }

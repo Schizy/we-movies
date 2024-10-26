@@ -10,9 +10,19 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/api')]
 class ApiController extends AbstractController
 {
-    #[Route('/genres', name: 'api_genres', methods: ['GET'])]
-    public function genres(TMDBManager $tmdb): Response
+    public function __construct(private readonly TMDBManager $tmdb)
     {
-        return $this->json($tmdb->getGenres());
+    }
+
+    #[Route('/genres', name: 'api_genres', methods: ['GET'])]
+    public function genres(): Response
+    {
+        return $this->json($this->tmdb->getGenres());
+    }
+
+    #[Route('/genres/{genreId<\d+>}/movies', name: 'api_movies', methods: ['GET'])]
+    public function movies(int $genreId): Response
+    {
+        return $this->json($this->tmdb->getMoviesByGenre($genreId));
     }
 }

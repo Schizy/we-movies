@@ -8,7 +8,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 class TMDBClient
 {
     public const GENRE_LIST = '/genre/movie/list';
-    public const GENRE_MOVIES = '/discover/movie';
+    public const DISCOVER_MOVIES = '/discover/movie';
     public const MOVIE_SEARCH = '/search/movie';
 
     public function __construct(
@@ -33,10 +33,10 @@ class TMDBClient
 
     public function getMoviesByGenre(int $genreId): array
     {
-        $data = $this->get(self::GENRE_MOVIES, ['with_genres' => $genreId]);
+        $data = $this->get(self::DISCOVER_MOVIES, ['with_genres' => $genreId]);
 
         if (!isset($data['results'])) {
-            $this->invalidDataException(self::GENRE_MOVIES);
+            $this->invalidDataException(self::DISCOVER_MOVIES);
         }
 
         return $data['results'];
@@ -51,6 +51,17 @@ class TMDBClient
         }
 
         return $data['results'];
+    }
+
+    public function mostPopular(): array
+    {
+        $data = $this->get(self::DISCOVER_MOVIES, ['sort_by' => 'vote_average.desc', 'vote_count.gte' => 1000]);
+
+        if (!isset($data['results'])) {
+            $this->invalidDataException(self::DISCOVER_MOVIES);
+        }
+
+        return $data['results'][0];
     }
 
     private function get(string $url, array $queryParams = []): array

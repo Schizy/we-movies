@@ -56,6 +56,22 @@ class TMDBManagerTest extends KernelTestCase
         ]), $data[0]);
     }
 
+    public function testMostPopular(): void
+    {
+        $this->stubToReturnFromClient('tests/Stubs/TMDB/most-popular.json');
+        $data = self::getContainer()->get(TMDBManager::class)->mostPopular();
+
+        $this->assertEquals(new Movie([
+            'id' => 278,
+            'poster_path' => "/9cqNxx0GxF0bflZmeSMuL5tnGzr.jpg",
+            'overview' => "Imprisoned in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named Red -- for his integrity and unquenchable sense of hope.",
+            'title' => "The Shawshank Redemption",
+            'release_date' => "1994-09-23",
+            'vote_average' => 8.707,
+            'vote_count' => 27011,
+        ]), $data);
+    }
+
     private function stubToReturnFromClient(string $stubName): void
     {
         $mockClient = new MockHttpClient(MockResponse::fromFile($stubName));

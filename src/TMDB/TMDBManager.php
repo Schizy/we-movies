@@ -22,13 +22,24 @@ class TMDBManager
         return $this->mapper->map($this->tmdbClient->getGenres(), Genre::class);
     }
 
+    /**
+     * @return Movie[]
+     */
     public function getMoviesByGenre(int $genreId): array
     {
         return $this->mapper->map($this->tmdbClient->getMoviesByGenre($genreId), Movie::class);
     }
 
+    /**
+     * @return Movie[]
+     */
     public function searchMovies(string $term): array
     {
         return $this->mapper->map($this->tmdbClient->searchMovies($term), Movie::class);
+    }
+
+    public function mostPopular(): Movie
+    {
+        return $this->mapper->mapOne($this->tmdbClient->mostPopular(), Movie::class);
     }
 }

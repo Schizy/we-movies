@@ -17,14 +17,19 @@ class DTOMapper
     {
         $dtos = [];
         foreach ($data as $dtoData) {
-            $dto = new $dtoClass($dtoData);
-
-            $this->validateOrThrowException($dto, $dtoData, $dtoClass);
-
-            $dtos[] = $dto;
+            $dtos[] = $this->mapOne($dtoData, $dtoClass);
         }
 
         return $dtos;
+    }
+
+    public function mapOne(array $data, string $dtoClass): object
+    {
+        $dto = new $dtoClass($data);
+
+        $this->validateOrThrowException($dto, $data, $dtoClass);
+
+        return $dto;
     }
 
     /**

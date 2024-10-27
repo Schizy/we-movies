@@ -1,0 +1,14 @@
+
+<div class="col-12">
+    {% set showVideo = true %}
+    {% for video in videos %}
+        {% if showVideo and video.youtubeKey and video.official == true and video.type == "Trailer" %}
+            {% set showVideo = false %}
+            <iframe width="100%" style="aspect-ratio: 16 / 9"
+                    src="https://www.youtube.com/embed/{{ video.youtubeKey }}"
+                    title="{{ video.name }}" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        {% endif %}
+    {% endfor %}
+</div>

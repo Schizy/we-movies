@@ -39,4 +39,14 @@ class WebController extends AbstractController
             'movies' => $movies,
         ]);
     }
+
+    #[Route('/movie/modal/{movieId<\d+>}', name: 'app_movie_modal')]
+    public function movieModal(int $movieId): Response
+    {
+        $videos = $this->tmdb->videosByMovieId($movieId);
+
+        return $this->render('web/_movieModal.html.twig', [
+            'videos' => $videos,
+        ]);
+    }
 }

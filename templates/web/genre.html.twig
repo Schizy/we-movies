@@ -15,7 +15,7 @@
                             <div class="small text-muted">{{ movie.releaseDate }}</div>
                             <h2 class="card-title h4">{{ movie.title }}</h2>
                             <p class="card-text">{{ movie.description }}</p>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{ movie.id }}">
+                            <button type="button" class="btn btn-primary btn-modal" data-toggle="modal" data-url="/movie/modal/{{ movie.id }}" data-target="#movie{{ movie.id }}">
                                 View trailer
                             </button>
                         </div>
@@ -23,31 +23,16 @@
                 </div>
 
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal{{ movie.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="movie{{ movie.id }}" tabindex="-1" role="dialog" aria-labelledby="movieLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">{{ movie.title }}</h5>
+                                <h5 class="modal-title" id="movieLabel">{{ movie.title }}</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body">
-
-                                <div class="row">
-                                    <div id="ratingForm">
-                                        <fieldset class="rating">
-                                            {% for i in 20..2 %}
-                                                <input type="radio" id="star{{ i }}" name="rating" value="{{ i }}" {{  movie.voteAverage|round * 2 == i ? 'checked' : ''}} />
-                                                <label class = "{{ i is odd ? 'half' : 'full' }}" for="star{{ i }}" title="{{ i/2 }} stars"></label>
-                                            {% endfor %}
-                                        </fieldset>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <p>{{ movie.voteAverage }} vote average on {{ movie.voteCount }} votes!</p>
-                                </div>
-                            </div>
+                            <div class="modal-body"></div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             </div>

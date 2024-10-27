@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\API;
 
 use App\TMDB\TMDBManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

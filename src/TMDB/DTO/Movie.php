@@ -11,7 +11,6 @@ class Movie
     #[GreaterThan(0)]
     public ?int $id;
 
-    #[NotBlank]
     public ?string $image;
 
     #[NotBlank]

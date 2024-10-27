@@ -4,52 +4,43 @@
 
 {% block body %}
     <div class="col-lg-8">
-
-
-        <!-- Nested row for non-featured blog posts-->
         <div class="row">
-            <!-- Featured blog post-->
             <div class="card mb-4">
-                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                <div class="card-body">
-                    <div class="small text-muted">January 1, 2023</div>
-                    <h2 class="card-title">Featured Post Title</h2>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                    <a class="btn btn-primary" href="#!">Read more →</a>
-                </div>
-            </div>
+                <div class="row">
+                    <div class="col-12">
+                        {% for video in videos %}
+                            {% if video.youtubeKey and video.official == true and video.type == "Trailer" %}
+                                <iframe width="100%" style="aspect-ratio: 16 / 9"
+                                        src="https://www.youtube.com/embed/{{ video.youtubeKey }}"
+                                        title="{{ video.name }}" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="col-3">
+                        <img class="img-fluid" src="https://image.tmdb.org/t/p/w300/{{ mostPopular.image }}" alt="Cover of {{ mostPopular.title }}"/>
+                    </div>
 
-            <div class="col-lg-6">
-                <!-- Blog post-->
-                <div class="card mb-4">
-                    <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                    <div class="card-body">
-                        <div class="small text-muted">January 1, 2023</div>
-                        <h2 class="card-title h4">Post Title</h2>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                        <a class="btn btn-primary" href="#!">Read more →</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <!-- Blog post-->
-                <div class="card mb-4">
-                    <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                    <div class="card-body">
-                        <div class="small text-muted">January 1, 2023</div>
-                        <h2 class="card-title h4">Post Title</h2>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                        <a class="btn btn-primary" href="#!">Read more →</a>
-                    </div>
-                </div>
-                <!-- Blog post-->
-                <div class="card mb-4">
-                    <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                    <div class="card-body">
-                        <div class="small text-muted">January 1, 2023</div>
-                        <h2 class="card-title h4">Post Title</h2>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam.</p>
-                        <a class="btn btn-primary" href="#!">Read more →</a>
+                    <div class="card-body col-9">
+                        <div class="row">
+                            <div class="small text-muted">{{ mostPopular.releaseDate }}</div>
+                            <h2 class="card-title">{{ mostPopular.title }}</h2>
+                            <p class="card-text">{{ mostPopular.description }}</p>
+                        </div>
+                        <div class="row">
+                            <div id="ratingForm">
+                                <fieldset class="rating">
+                                    {% for i in 20..2 %}
+                                        <input type="radio" id="star{{ i }}" name="rating" value="{{ i }}" {{  mostPopular.voteAverage|round * 2 == i ? 'checked' : ''}} />
+                                        <label class = "{{ i is odd ? 'half' : 'full' }}" for="star{{ i }}" title="{{ i/2 }} stars"></label>
+                                    {% endfor %}
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <p>{{ mostPopular.voteAverage }} vote average on {{ mostPopular.voteCount }} votes!</p>
+                        </div>
                     </div>
                 </div>
             </div>

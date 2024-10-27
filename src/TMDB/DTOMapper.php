@@ -40,7 +40,7 @@ class DTOMapper
         $violations = $this->validator->validate($dto);
 
         if (count($violations) > 0) {
-            $this->logger->error('Impossible to map ' . $dtoClass . ' with invalid data', ['data' => $data]);
+            $this->logger->error('Impossible to map ' . $dtoClass . ' with invalid data', ['data' => $data, 'violations' => $violations]);
             throw new \Exception('Invalid data, impossible to map DTO ' . $dtoClass);
         }
     }

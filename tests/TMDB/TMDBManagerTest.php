@@ -4,6 +4,7 @@ namespace App\Tests\TMDB;
 
 use App\TMDB\DTO\Genre;
 use App\TMDB\DTO\Movie;
+use App\TMDB\DTO\Video;
 use App\TMDB\TMDBManager;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpClient\MockHttpClient;
@@ -69,6 +70,38 @@ class TMDBManagerTest extends KernelTestCase
             'release_date' => "1994-09-23",
             'vote_average' => 8.707,
             'vote_count' => 27011,
+        ]), $data);
+    }
+
+    public function testVideos(): void
+    {
+        $this->stubToReturnFromClient('tests/Stubs/TMDB/videos.json');
+        $data = self::getContainer()->get(TMDBManager::class)->videosByMovieId(550);
+        $this->assertCount(4, $data);
+
+        $this->assertEquals(new Video([
+            'name' => "20th Anniversary Trailer",
+            'key' => "dfeUzm6KF4g",
+            'site' => 'YouTube',
+            'type' => 'Trailer',
+            'official' => true,
+            'published_at' => '2019-10-15T18:59:47.000Z',
+        ]), $data[0]);
+    }
+
+    public function testMovieById(): void
+    {
+        $this->stubToReturnFromClient('tests/Stubs/TMDB/movie.json');
+        $data = self::getContainer()->get(TMDBManager::class)->movieById(550);
+
+        $this->assertEquals(new Movie([
+            'id' => 550,
+            'poster_path' => "/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg",
+            'overview' => "A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. Their concept catches on, with underground \"fight clubs\" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.",
+            'title' => "Fight Club",
+            'release_date' => "1999-10-15",
+            'vote_average' => 8.438,
+            'vote_count' => 29258,
         ]), $data);
     }
 

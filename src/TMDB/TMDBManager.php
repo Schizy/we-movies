@@ -4,6 +4,7 @@ namespace App\TMDB;
 
 use App\TMDB\DTO\Genre;
 use App\TMDB\DTO\Movie;
+use App\TMDB\DTO\Video;
 
 class TMDBManager
 {
@@ -41,5 +42,18 @@ class TMDBManager
     public function mostPopular(): Movie
     {
         return $this->mapper->mapOne($this->tmdbClient->mostPopular(), Movie::class);
+    }
+
+    /**
+     * @return Video[]
+     */
+    public function videosByMovieId(int $movieId): array
+    {
+        return $this->mapper->map($this->tmdbClient->videosByMovieId($movieId), Video::class);
+    }
+
+    public function movieById(int $movieId)
+    {
+        return $this->mapper->mapOne($this->tmdbClient->movieById($movieId), Movie::class);
     }
 }

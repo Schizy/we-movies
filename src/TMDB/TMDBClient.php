@@ -3,6 +3,7 @@
 namespace App\TMDB;
 
 use Psr\Log\LoggerInterface;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class TMDBClient
@@ -10,6 +11,8 @@ class TMDBClient
     public const GENRE_LIST = '/genre/movie/list';
     public const DISCOVER_MOVIES = '/discover/movie';
     public const MOVIE_SEARCH = '/search/movie';
+    public const MOVIE_BY_ID = '/movie/%d';
+    public const MOVIE_VIDEOS = '/movie/%d/videos';
 
     public function __construct(
         private readonly string              $tmdbApiUrl,
@@ -22,58 +25,50 @@ class TMDBClient
 
     public function getGenres(): array
     {
-        $data = $this->get(self::GENRE_LIST);
-
-        if (!isset($data['genres'])) {
-            $this->invalidDataException(self::GENRE_LIST);
-        }
-
-        return $data['genres'];
+        return $this->get(self::GENRE_LIST, mainKey: 'genres');
     }
 
     public function getMoviesByGenre(int $genreId): array
     {
-        $data = $this->get(self::DISCOVER_MOVIES, ['with_genres' => $genreId]);
-
-        if (!isset($data['results'])) {
-            $this->invalidDataException(self::DISCOVER_MOVIES);
-        }
-
-        return $data['results'];
+        return $this->get(self::DISCOVER_MOVIES, ['with_genres' => $genreId]);
     }
 
     public function searchMovies(string $term): array
     {
-        $data = $this->get(self::MOVIE_SEARCH, ['query' => $term]);
-
-        if (!isset($data['results'])) {
-            $this->invalidDataException(self::MOVIE_SEARCH);
-        }
-
-        return $data['results'];
+        return $this->get(self::MOVIE_SEARCH, ['query' => $term]);
     }
 
     public function mostPopular(): array
     {
         $data = $this->get(self::DISCOVER_MOVIES, ['sort_by' => 'vote_average.desc', 'vote_count.gte' => 1000]);
 
-        if (!isset($data['results'])) {
-            $this->invalidDataException(self::DISCOVER_MOVIES);
-        }
-
-        return $data['results'][0];
+        return $data[0];
     }
 
-    private function get(string $url, array $queryParams = []): array
+    public function videosByMovieId(int $movieId): array
+    {
+        return $this->get(sprintf(self::MOVIE_VIDEOS, $movieId));
+    }
+
+    public function movieById(int $movieId): array
+    {
+        return $this->get(sprintf(self::MOVIE_BY_ID, $movieId), mainKey: null);
+    }
+
+    private function get(string $url, array $queryParams = [], $mainKey = 'results'): array
     {
         $url = $this->tmdbApiUrl . $url;
         $response = $this->httpClient->request('GET', $url, [
             'query' => ['api_key' => $this->tmdbApiKey] + $queryParams,
         ]);
 
+        if ($response->getStatusCode() === 404) {
+            throw new NotFoundHttpException('Page not found');
+        }
+
         if ($response->getStatusCode() !== 200) {
             $this->logger->error('TMDB API {url} error: ' . $response->getStatusCode(), ['url' => $url]);
-            throw new \Exception('TMDB API returned an ' . $response->getStatusCode() . ' status code');
+            throw new \Exception('TMDB API returned a ' . $response->getStatusCode() . ' status code');
         }
 
         try {
@@ -83,7 +78,11 @@ class TMDBClient
             throw new \Exception('TMDB API response is not a valid JSON');
         }
 
-        return $data;
+        if ($mainKey && !isset($data[$mainKey])) {
+            $this->invalidDataException($url . '?' . http_build_query($queryParams));
+        }
+
+        return $mainKey ? $data[$mainKey] : $data;
     }
 
     private function invalidDataException(string $endpoint): void

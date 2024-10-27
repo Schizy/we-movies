@@ -15,7 +15,7 @@ class MovieController extends AbstractController
     }
 
     #[Route('/search/{term}', name: 'api_search_movies', methods: ['GET'])]
-    public function searchMovies(string $term): Response
+    public function search(string $term): Response
     {
         return $this->json($this->tmdb->searchMovies($term));
     }
@@ -24,5 +24,17 @@ class MovieController extends AbstractController
     public function mostPopular(): Response
     {
         return $this->json($this->tmdb->mostPopular());
+    }
+
+    #[Route('/{movieId<\d+>}', name: 'api_movie', methods: ['GET'])]
+    public function byId(int $movieId): Response
+    {
+        return $this->json($this->tmdb->movieById($movieId));
+    }
+
+    #[Route('/{movieId<\d+>}/videos', name: 'api_movie_videos', methods: ['GET'])]
+    public function videos(int $movieId): Response
+    {
+        return $this->json($this->tmdb->videosByMovieId($movieId));
     }
 }

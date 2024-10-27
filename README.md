@@ -8,7 +8,7 @@ How to install the project:
 - `docker compose up -d`
 - `docker compose exec php composer install`
 - `docker compose exec php npm install`
-- `docker compose exec php npm build` 
+- `docker compose exec php npm run build` 
 
 Then you need an API KEY from TMDB to put in the `.env` file or in `.env.local` (`TMDB_API_KEY`)
 

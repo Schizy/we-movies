@@ -7,3 +7,11 @@
     color: #0a58ca;
     border-bottom: 1px dashed #0d6efd;
 }
+
+.autocomplete {
+    padding: 5px;
+}
+
+.autocomplete li {
+    margin:3px;
+}

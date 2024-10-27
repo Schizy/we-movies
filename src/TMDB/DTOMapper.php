@@ -17,7 +17,11 @@ class DTOMapper
     {
         $dtos = [];
         foreach ($data as $dtoData) {
-            $dtos[] = $this->mapOne($dtoData, $dtoClass);
+            try {
+                $dtos[] = $this->mapOne($dtoData, $dtoClass);
+            } catch (\Exception $e) {
+                continue;
+            }
         }
 
         return $dtos;

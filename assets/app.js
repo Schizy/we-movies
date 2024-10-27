@@ -12,4 +12,6 @@ import './styles/app.css';
 
 
 // JS files
-import './js/rating.js';
+import './js/modal.js';
+import './js/autocomplete.js';
+

@@ -8,8 +8,10 @@
             <div class="card mb-4">
                 <div class="row">
                     <div class="col-12">
+                        {% set showVideo = true %}
                         {% for video in videos %}
-                            {% if video.youtubeKey and video.official == true and video.type == "Trailer" %}
+                            {% if showVideo and video.youtubeKey and video.official == true and video.type == "Trailer" %}
+                                {% set showVideo = false %}
                                 <iframe width="100%" style="aspect-ratio: 16 / 9"
                                         src="https://www.youtube.com/embed/{{ video.youtubeKey }}"
                                         title="{{ video.name }}" frameborder="0"
@@ -19,27 +21,27 @@
                         {% endfor %}
                     </div>
                     <div class="col-3">
-                        <img class="img-fluid" src="https://image.tmdb.org/t/p/w300/{{ mostPopular.image }}" alt="Cover of {{ mostPopular.title }}"/>
+                        <img class="img-fluid" src="https://image.tmdb.org/t/p/w300/{{ movie.image }}" alt="Cover of {{ movie.title }}"/>
                     </div>
 
                     <div class="card-body col-9">
                         <div class="row">
-                            <div class="small text-muted">{{ mostPopular.releaseDate }}</div>
-                            <h2 class="card-title">{{ mostPopular.title }}</h2>
-                            <p class="card-text">{{ mostPopular.description }}</p>
+                            <div class="small text-muted">{{ movie.releaseDate }}</div>
+                            <h2 class="card-title">{{ movie.title }}</h2>
+                            <p class="card-text">{{ movie.description }}</p>
                         </div>
                         <div class="row">
                             <div id="ratingForm">
                                 <fieldset class="rating">
                                     {% for i in 20..2 %}
-                                        <input type="radio" id="star{{ i }}" name="rating" value="{{ i }}" {{  mostPopular.voteAverage|round * 2 == i ? 'checked' : ''}} />
+                                        <input type="radio" id="star{{ i }}" name="rating" value="{{ i }}" {{  movie.voteAverage|round * 2 == i ? 'checked' : ''}} />
                                         <label class = "{{ i is odd ? 'half' : 'full' }}" for="star{{ i }}" title="{{ i/2 }} stars"></label>
                                     {% endfor %}
                                 </fieldset>
                             </div>
                         </div>
                         <div class="row">
-                            <p>{{ mostPopular.voteAverage }} vote average on {{ mostPopular.voteCount }} votes!</p>
+                            <p>{{ movie.voteAverage }} vote average on {{ movie.voteCount }} votes!</p>
                         </div>
                     </div>
                 </div>

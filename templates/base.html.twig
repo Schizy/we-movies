@@ -14,7 +14,7 @@
 <!-- Responsive navbar-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="#!">We Movies</a>
+        <a class="navbar-brand" href="/">We Movies</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -26,7 +26,7 @@
     </div>
 </nav>
 <!-- Page header with logo and tagline-->
-<header class="py-5 bg-light border-bottom mb-4">
+<header class="py-1 bg-light border-bottom mb-4">
     <div class="container">
         <div class="text-center my-5">
             <h1 class="fw-bolder">Welcome to We Movies!</h1>
@@ -55,9 +55,14 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
-                            <ul class="list-unstyled mb-0">
+                            <ul class="list-unstyled mb-0 menu">
                                 {% for genre in genres %}
-                                    <li><a href="{{ path('app_genre', {genreId: genre.id}) }}">{{ genre.name }}</a></li>
+                                    <li>
+                                        <a href="{{ path('app_genre', {genreId: genre.id}) }}"
+                                           class="{{ app.request.attributes.get('genreId') == genre.id ? 'selected-genre' : '' }}">
+                                            {{ genre.name }}
+                                        </a>
+                                    </li>
                                 {% endfor %}
                             </ul>
                         </div>

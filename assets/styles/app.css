@@ -1,0 +1,9 @@
+
+.menu li a {
+    text-decoration: none;
+}
+
+.menu .selected-genre {
+    color: #0a58ca;
+    border-bottom: 1px dashed #0d6efd;
+}

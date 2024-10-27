@@ -9,29 +9,34 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class WebController extends AbstractController
 {
-    #[Route('/', name: 'app_home')]
-    public function home(TMDBManager $tmdb): Response
+    public function __construct(private readonly TMDBManager $tmdb)
     {
-        $genres = $tmdb->getGenres();
-        $mostPopular = $tmdb->mostPopular();
-        $videos = $tmdb->videosByMovieId($mostPopular->id);
+    }
+
+    #[Route('/', name: 'app_home')]
+    #[Route('/movie/{movieId<\d+>}', name: 'app_movie')]
+    public function home(int $movieId = null): Response
+    {
+        $genres = $this->tmdb->getGenres();
+        $movie = $movieId ? $this->tmdb->movieById($movieId) : $this->tmdb->mostPopular();
+        $videos = $this->tmdb->videosByMovieId($movie->id);
+
         return $this->render('web/home.html.twig', [
             'genres' => $genres,
-            'mostPopular' => $mostPopular,
+            'movie' => $movie,
             'videos' => $videos,
         ]);
     }
 
     #[Route('/genre/{genreId<\d+>}', name: 'app_genre')]
-    public function genre(TMDBManager $tmdb): Response
+    public function genre(int $genreId): Response
     {
-        $genres = $tmdb->getGenres();
-        $mostPopular = $tmdb->mostPopular();
-        $videos = $tmdb->videosByMovieId($mostPopular->id);
+        $genres = $this->tmdb->getGenres();
+        $movies = $this->tmdb->getMoviesByGenre($genreId);
+
         return $this->render('web/genre.html.twig', [
             'genres' => $genres,
-            'mostPopular' => $mostPopular,
-            'videos' => $videos,
+            'movies' => $movies,
         ]);
     }
 }

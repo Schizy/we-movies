@@ -35,7 +35,7 @@ class TMDBManager
      */
     public function getMoviesByGenre(int $genreId): array
     {
-        $moviesByGenre = $this->cache('getMoviesByGenre', function () use ($genreId): array {
+        $moviesByGenre = $this->cache('getMoviesByGenre' . $genreId, function () use ($genreId): array {
             return $this->tmdbClient->getMoviesByGenre($genreId);
         });
 
@@ -47,7 +47,7 @@ class TMDBManager
      */
     public function searchMovies(string $term): array
     {
-        $searchMovies = $this->cache('searchMovies', function () use ($term): array {
+        $searchMovies = $this->cache('searchMovies' . $term, function () use ($term): array {
             return $this->tmdbClient->searchMovies($term);
         });
 
@@ -68,12 +68,16 @@ class TMDBManager
      */
     public function videosByMovieId(int $movieId): array
     {
-        return $this->mapper->map($this->tmdbClient->videosByMovieId($movieId), Video::class);
+        $videos = $this->cache('videos' . $movieId, function () use ($movieId): array {
+            return $this->tmdbClient->videosByMovieId($movieId);
+        });
+
+        return $this->mapper->map($videos, Video::class);
     }
 
     public function movieById(int $movieId)
     {
-        $movieById = $this->cache('movieById', function () use ($movieId): array {
+        $movieById = $this->cache('movieById' . $movieId, function () use ($movieId): array {
             return $this->tmdbClient->movieById($movieId);
         });
 

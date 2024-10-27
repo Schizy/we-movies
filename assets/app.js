@@ -8,6 +8,7 @@
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/styles.css';
 import './styles/rating.css';
+import './styles/app.css';
 
 
 // JS files
